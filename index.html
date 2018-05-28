@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Messaging app</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+</head>
+<body>
+    <div id=gameBox>
+    <div id="gameArea">
+
+    
+        <img id="fist" src="assets/images/Fist - green.svg">
+        <img id="slap" src="assets/images/slap - green.svg">
+        <img id="snip" src="assets/images/snips - green.svg">
+
+        <img id="pFist" src="assets/images/Fist - Purp.svg">
+        <img id="pSlap" src="assets/images/slap - purp.svg">
+        <img id="pSnip" src="assets/images/snips - Purp.svg">
+
+
+
+
+    </div>
+    
+       
+    
+        
+    
+    <div id="chatBox" >
+        <div id="winLoss" rows="10">
+            <h4>wins:3</h4>
+            <h4>losses:2</h4>
+
+        </div>
+        <form id="leChat">
+            <div class="form-group" >
+                <textarea readonly id="messList" class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+                <label>Username</label>
+                <input id="username" type="text">
+                <label>Message</label>
+                <input id="message" type="text">
+                <button id="submitMessage" type="submit">Submit</button>
+                    
+            </div>
+        </form>
+        <div id="waitingList" rows="10">
+            <h3>Players in waiting room</h3>
+            <h4>George</h4>
+            <h4>Michael</h4>
+        </div>
+    </div>
+
+    </div>
+
+    <script src="assets/javascript/app.js"></script>
+
+</body>
+</html>
