@@ -52,51 +52,82 @@ $("button").click("#heeey", function(){
     
 });
 
-$("#fist").on("click", function(){
-    console.log("hello");
+
+
+// SELECT FIST
+// SELECT FIST
+// SELECT FIST
+$("#gameArea").on("click", ".choseFist" , function(){
     $("#fist").animate({
         left: "10%",
         opacity:1  
-    }).css("z-index", "1");
+    }).css("z-index", "1").attr( "class","selected")
     $("#slap").animate({
         left: "10%",
         opacity:0
-    })
+    }).css("z-index", "0").attr( "class","selected")
     $("#snip").animate({
         left: "10%",
         opacity:0
-    })
+    }).css("z-index", "0").attr( "class","selected")
 })
 
-$("#snip").on("click", function(){
+
+        
+// SELECT SNIP
+// SELECT SNIP
+// SELECT SNIP
+$("#gameArea").on("click",".choseSnip", function(){
     console.log("hello");
     $("#fist").animate({
         left: "10%",
         opacity:0  
-    }).css("z-index", "1");
+    }).css("z-index", "0").attr( "class","selected");
     $("#slap").animate({
         left: "10%",
         opacity:0
-    })
+    }).css("z-index", "0").attr( "class","selected")
     $("#snip").animate({
         left: "10%",
         opacity:1
-    }).css("z-index", "1");
+    }).css("z-index", "1").attr( "class","selected");
 })
 
-$("#slap").on("click", function(){
+
+// SELECT SNAP
+// SELECT SNAP
+// SELECT SNAP
+$("#gameArea").on("click",".choseSlap", function(){
     console.log("hello");
     $("#fist").animate({
         left: "10%",
         opacity:0  
-    }).css("z-index", "1");
+    }).css("z-index", "0").attr( "class","selected");
     $("#slap").animate({
         left: "10%",
         opacity:1
-    }).css("z-index", "1");
+    }).css("z-index", "1").attr( "class","selected");
     $("#snip").animate({
         left: "10%",
         opacity:0
-    })
+    }).css("z-index", "0").attr( "class","selected")
 })
 
+
+// RESET CHOICE
+// RESET CHOICE
+// RESET CHOICE
+$("#gameArea").on("click",".selected", function(){
+    $("#fist").animate({
+        left: "50%",
+        opacity:1  
+    }).css("z-index", "").attr( "class","choseFist")
+    $("#slap").animate({
+        left: "30%",
+        opacity:1
+    }).css("z-index", "").attr( "class","choseSlap")
+    $("#snip").animate({
+        left: "10%",
+        opacity:1
+    }).css("z-index", "").attr( "class","choseSnip")
+})
