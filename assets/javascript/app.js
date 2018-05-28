@@ -52,4 +52,51 @@ $("button").click("#heeey", function(){
     
 });
 
- 
+$("#fist").on("click", function(){
+    console.log("hello");
+    $("#fist").animate({
+        left: "10%",
+        opacity:1  
+    }).css("z-index", "1");
+    $("#slap").animate({
+        left: "10%",
+        opacity:0
+    })
+    $("#snip").animate({
+        left: "10%",
+        opacity:0
+    })
+})
+
+$("#snip").on("click", function(){
+    console.log("hello");
+    $("#fist").animate({
+        left: "10%",
+        opacity:0  
+    }).css("z-index", "1");
+    $("#slap").animate({
+        left: "10%",
+        opacity:0
+    })
+    $("#snip").animate({
+        left: "10%",
+        opacity:1
+    }).css("z-index", "1");
+})
+
+$("#slap").on("click", function(){
+    console.log("hello");
+    $("#fist").animate({
+        left: "10%",
+        opacity:0  
+    }).css("z-index", "1");
+    $("#slap").animate({
+        left: "10%",
+        opacity:1
+    }).css("z-index", "1");
+    $("#snip").animate({
+        left: "10%",
+        opacity:0
+    })
+})
+
