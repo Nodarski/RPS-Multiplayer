@@ -1,0 +1,10 @@
+<svg width="90" height="90" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <title>fist</title>
+ <g>
+  <title>Layer 1</title>
+  <circle fill="#ab7c94" stroke-width="2" cx="45" cy="45" r="43.80065" id="svg_3"/>
+  <text font-weight="bold" transform="matrix(0.7440758347511292,0,0,0.7440758347511292,2.1193719934672117,11.056723701767623) " xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" id="svg_1" y="28.18727" x="57.81282" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#000000">Waiting</text>
+  <text transform="matrix(0.5576187968254089,0,0,0.5576187968254089,13.852061424404383,23.169715516269207) " xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" id="svg_2" y="39.0413" x="55.56374" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#000000">for</text>
+  <text font-weight="bold" transform="matrix(0.8742012977600098,0,0,0.8742012977600098,0.08255539834499359,8.060944966971874) " xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" id="svg_4" y="61.92284" x="51.39378" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#000000">Player 2</text>
+ </g>
+</svg>

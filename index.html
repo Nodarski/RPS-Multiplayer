@@ -13,6 +13,20 @@
     
 </head>
 <body>
+<div id="waitList">
+    <h1 class="waiting">You are in line to play</h1>
+</div>
+    <div id="userWelcome">
+        <h1>WELCOME CHALLENGER</h1>
+          <h2> What is your name?</h2>
+            <label>Username</label>
+            <input id="inputName" type="text">
+            <button id="startGame" type="submit">Join the Battle!</button>
+
+    </div>
+
+
+
     <div id=gameBox>
     <div id="gameArea">
 
@@ -24,6 +38,7 @@
         <img id="pFist" src="assets/images/Fist - Purp.svg">
         <img id="pSlap" src="assets/images/slap - purp.svg">
         <img id="pSnip" src="assets/images/snips - Purp.svg">
+        <img id="waitingForP" src="assets/images/waiting-purp.svg">
 
 
 
@@ -36,15 +51,13 @@
     
     <div id="chatBox" >
         <div id="winLoss" rows="10">
-            <h4>wins:3</h4>
-            <h4>losses:2</h4>
+            <h4 id="winCount">wins:3</h4>
+            <h4 id="lossCount">losses:2</h4>
 
         </div>
         <form id="leChat">
             <div class="form-group" >
                 <textarea readonly id="messList" class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
-                <label>Username</label>
-                <input id="username" type="text">
                 <label>Message</label>
                 <input id="message" type="text">
                 <button id="submitMessage" type="submit">Submit</button>
