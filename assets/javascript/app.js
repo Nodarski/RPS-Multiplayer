@@ -40,11 +40,10 @@ var messList = $("#messList");
   var handSelect = "";
   var wins = 0;
   var losses = 0;
-  var player = 1;
+  var player=0;
 // Global Vars
 
 // Removes player data when diconnect
-storesRef.child(`${player}`).onDisconnect().remove();
 // Removes player data when diconnect
 
 
@@ -60,16 +59,9 @@ storesRef.child(`${player}`).onDisconnect().remove();
 
 ;
 //Start splash screen on game start
-// storesRef.child('2').on('value', function(snapshot){
-//     playerNum = snapshot.val();
-    
-//     if (playerNum){
-//     $('#waitingForP').css('display', 'none');
-    
-//     }
-// });
+
   
-  storesRef.on('value', function(snapshot){
+storesRef.on('value', function(snapshot){
       playerNum = snapshot.child('2').val();
       if (playerNum){
         $('#waitingForP').css('display', 'none');
@@ -82,13 +74,13 @@ storesRef.child(`${player}`).onDisconnect().remove();
 
         //playerTwoChoice = snapshot.val();
 
-        console.log("playerTwoChoice="+playerTwoChoice);
         
 
         
 
         playerOneChoice = snapshot.child('1').child('RPorS').val()
-        console.log("playerOneChoice =" +playerOneChoice);
+        console.log("P1 playerOneChoice =  " +playerOneChoice);
+        console.log("P1 playerTwoChoice=  "+playerTwoChoice);
         
 
         
@@ -101,13 +93,17 @@ storesRef.child(`${player}`).onDisconnect().remove();
 
         playerOneChoice = snapshot.child('2').child("RPorS").val()
 
-            
+        console.log("P2 playerOneChoice =  " +playerOneChoice);
+        console.log("P2 playerTwoChoice=  "+playerTwoChoice);
+        
         
 
 
     
     }
-   console.log("player1 "+ playerOneChoice+"player2 "+playerTwoChoice);
+    storesRef.child(`${player}`).onDisconnect().remove();
+
+   console.log("player1 "+ playerOneChoice+"   player2 "+playerTwoChoice);
   });
 
 
@@ -118,6 +114,7 @@ storesRef.child(`${player}`).onDisconnect().remove();
 
 //Sets player number
   function addStore(){
+    player++;
   storesRef.once('value', function(snapshot) {
 
     if (!snapshot.hasChild(`${player}`)){
@@ -131,12 +128,12 @@ storesRef.child(`${player}`).onDisconnect().remove();
           });
           if (player > 2){
               $("#waitList").css("display","flex");
-              console.log('hello')
+              console.log('You have been put on the waiting list.. You are player# .. ' + player)
           }
         
 
         } else {
-            player++;
+            
             addStore();
         };
         
@@ -209,7 +206,7 @@ function selectionMade(){
 $("#gameArea").on("click", ".choseFist" , function(){
     handSelect = $(this).attr("id");
     selectionMade();
-    console.log(handSelect);
+    console.log('I CHOSE =  ' + handSelect);
     $("#fist").animate({
         left: "10%",
         opacity:1  
@@ -232,7 +229,7 @@ $("#gameArea").on("click", ".choseFist" , function(){
 $("#gameArea").on("click",".choseSnip", function(){
     handSelect = $(this).attr("id");
     selectionMade()
-        console.log(handSelect);
+    console.log('I CHOSE =  ' + handSelect);
     $("#fist").animate({
         left: "10%",
         opacity:0  
@@ -254,7 +251,7 @@ $("#gameArea").on("click",".choseSnip", function(){
 $("#gameArea").on("click",".choseSlap", function(){
     handSelect = $(this).attr("id");
     selectionMade() 
-     console.log(handSelect);
+    console.log('I CHOSE =  ' + handSelect);
     $("#fist").animate({
         left: "10%",
         opacity:0  
@@ -276,7 +273,7 @@ $("#gameArea").on("click",".choseSlap", function(){
 $("#gameArea").on("click",".selected", function(){
     handSelect = "";
     selectionMade()
-    console.log(handSelect);
+    console.log('I CHOSE =  ' + handSelect);
 
     $("#fist").animate({
         left: "50%",
