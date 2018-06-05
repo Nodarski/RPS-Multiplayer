@@ -1,7 +1,8 @@
-
+// Chatbox content div
 var messList = $("#messList");
+// Chatbox content div
 
-  // Initialize Firebase
+// Initialize Firebase
   var config = {
     apiKey: "AIzaSyDUPVsnligdqsfy0-TxJv5JLYPpnxcMyAo",
     authDomain: "rockpaperscissorgame-3603b.firebaseapp.com",
@@ -15,44 +16,71 @@ var messList = $("#messList");
 
   var database = firebase.database();
   var rootRef = firebase.database().ref();
+// Initialize Firebase
+
+
+// Stores player data
   var storesRef = rootRef.child('Players');
+// Stores player data
 
 
+// firebase.auth().signInAnonymously().catch(function(error) {
+//     // Handle Errors here.
+//     var errorCode = error.code;
+//     var errorMessage = error.message;
+//     // ...
+//     consol.log(errorMessage);
+//   });
+
+
+// Global Vars
   var playerOneChoice = "";
   var playerTwoChoice = "";
-  var userName = "yo";
+  var userName = "yo"; //=$("#inputName").val();
   var handSelect = "";
   var wins = 0;
   var losses = 0;
   var player = 1;
+// Global Vars
 
+// Removes player data when diconnect
 storesRef.child(`${player}`).onDisconnect().remove();
+// Removes player data when diconnect
 
 
-
+//Start splash screen on game start
   $("#startGame").on('click', function (event){
     event.preventDefault();
    userName =$("#inputName").val();
 
-    $("#userWelcome").fadeOut(1000); 
+    $("#userWelcome").fadeOut(1000); //Splash Screen Fade out
  addStore();
   });
 
-if (playerTwoChoice) {
-    $("#waitingForP").remove();
-};
 
+;
+//Start splash screen on game start
+storesRef.child('2').on('value', function(snapshot){
+    playerNum = snapshot.val();
+    if (playerNum){
+    $('#waitingForP').css('display', 'none');
+    console.log("player 2 is here");
+    }
+});
   
   storesRef.on('value', function(snapshot){
       if (player === 1){
         storesRef.child(`${player+1}`).child("RPorS").once('value', function(snapshot){
 
         playerTwoChoice = snapshot.val();
+
+        console.log("playerTwoChoice="+playerTwoChoice);
         })
 
         storesRef.child(`${player}`).child("RPorS").once('value', function(snapshot){
 
         playerOneChoice = snapshot.val()
+        console.log("playerOneChoice =" +playerOneChoice);
         })
 
         
@@ -81,13 +109,13 @@ if (playerTwoChoice) {
 
     
 
-
+//Sets player number
   function addStore(){
   storesRef.once('value', function(snapshot) {
 
     if (!snapshot.hasChild(`${player}`)){
 
-        console.log(player);
+        console.log('IM PLAYER' + player);
         storesRef.child(`${player}`).set({
             name: userName,
             "RPorS": handSelect,
@@ -98,16 +126,17 @@ if (playerTwoChoice) {
               $("#waitList").css("display","flex");
               console.log('hello')
           }
-
+        
 
         } else {
             player++;
             addStore();
-        }
-    
+        };
+        
    });
 
 };
+//Sets player number
 
 
 
