@@ -60,16 +60,23 @@ storesRef.child(`${player}`).onDisconnect().remove();
 
 ;
 //Start splash screen on game start
-storesRef.child('2').on('value', function(snapshot){
-    playerNum = snapshot.val();
+// storesRef.child('2').on('value', function(snapshot){
+//     playerNum = snapshot.val();
     
-    if (playerNum){
-    $('#waitingForP').css('display', 'none');
+//     if (playerNum){
+//     $('#waitingForP').css('display', 'none');
     
-    }
-});
+//     }
+// });
   
   storesRef.on('value', function(snapshot){
+      playerNum = snapshot.child('2').val();
+      if (playerNum){
+        $('#waitingForP').css('display', 'none');
+        
+        }
+
+
       if (player === 1){
         playerTwoChoice = snapshot.child('2').child("RPorS").val()
 
