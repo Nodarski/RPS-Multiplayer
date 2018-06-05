@@ -50,8 +50,9 @@ var messList = $("#messList");
 //Start splash screen on game start
   $("#startGame").on('click', function (event){
     event.preventDefault();
+    $('#startGame').remove();
    userName =$("#inputName").val();
-
+    
     $("#userWelcome").fadeOut(1000); //Splash Screen Fade out
  addStore();
   });
@@ -71,6 +72,7 @@ storesRef.on('value', function(snapshot){
 
       if (player === 1){
         playerTwoChoice = snapshot.child('2').child("RPorS").val()
+        p2Status = snapshot.child('2').val();
 
         //playerTwoChoice = snapshot.val();
 
@@ -82,11 +84,16 @@ storesRef.on('value', function(snapshot){
         console.log("P1 playerOneChoice =  " +playerOneChoice);
         console.log("P1 playerTwoChoice=  "+playerTwoChoice);
         
+        if(!p2Status){
+            $('#waitingForP').css('display', '');
+        }
 
         
 
     }
     if (player===2){
+        p1Status = snapshot.child('1').val();
+
         playerTwoChoice = snapshot.child('1').child("RPorS").val()
 
            
@@ -96,11 +103,30 @@ storesRef.on('value', function(snapshot){
         console.log("P2 playerOneChoice =  " +playerOneChoice);
         console.log("P2 playerTwoChoice=  "+playerTwoChoice);
         
+        if(!p1Status){
+            $('#waitingForP').css('display', '');
+        }
         
 
 
     
     }
+    if (player > 2){
+        p2Status = snapshot.child('2').val();
+        p1Status = snapshot.child('1').val();
+        if(!p2Status || !p1Status){
+            
+
+            
+           
+            player = 0;
+            $("#waitList").css("display","none");
+
+            addStore();
+                
+             
+         };
+    };
     storesRef.child(`${player}`).onDisconnect().remove();
 
    console.log("player1 "+ playerOneChoice+"   player2 "+playerTwoChoice);
