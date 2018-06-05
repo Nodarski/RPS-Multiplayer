@@ -62,40 +62,40 @@ storesRef.child(`${player}`).onDisconnect().remove();
 //Start splash screen on game start
 storesRef.child('2').on('value', function(snapshot){
     playerNum = snapshot.val();
+    
     if (playerNum){
     $('#waitingForP').css('display', 'none');
-    console.log("player 2 is here");
+    
     }
 });
   
   storesRef.on('value', function(snapshot){
       if (player === 1){
-        storesRef.child(`${player+1}`).child("RPorS").once('value', function(snapshot){
+        playerTwoChoice = snapshot.child('2').child("RPorS").val()
 
-        playerTwoChoice = snapshot.val();
+        //playerTwoChoice = snapshot.val();
 
         console.log("playerTwoChoice="+playerTwoChoice);
-        })
+        
 
-        storesRef.child(`${player}`).child("RPorS").once('value', function(snapshot){
+        
 
-        playerOneChoice = snapshot.val()
+        playerOneChoice = snapshot.child('1').child('RPorS').val()
         console.log("playerOneChoice =" +playerOneChoice);
-        })
+        
 
         
 
     }
     if (player===2){
-        storesRef.child(`${player-1}`).child("RPorS").once('value', function(snapshot){
+        playerTwoChoice = snapshot.child('1').child("RPorS").val()
 
-            playerTwoChoice = snapshot.val();
-        })
+           
 
-        storesRef.child(`${player}`).child("RPorS").once('value', function(snapshot){
+        playerOneChoice = snapshot.child('2').child("RPorS").val()
 
-            playerOneChoice = snapshot.val()
-        })
+            
+        
 
 
     
