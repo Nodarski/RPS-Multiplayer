@@ -56,6 +56,7 @@ var messList = $("#messList");
     
     $("#userWelcome").fadeOut(1000); //Splash Screen Fade out
  addStore();
+ updateScore();
   });
 
 
@@ -96,7 +97,8 @@ storesRef.on('value', function(snapshot){
             handSelect = "";
             selectionMade();
             winUpdate();
-            winnScreen()
+            winnScreen();
+            updateScore();
         }
         if((playerTwoChoice==="fist" && playerOneChoice==="snip") || (playerTwoChoice === "slap" && playerOneChoice==="fist")|| (playerTwoChoice==="snip"&& playerOneChoice==="slap")){
             console.log('youlose!!')
@@ -105,6 +107,7 @@ storesRef.on('value', function(snapshot){
             selectionMade();
             lossUpdate();
             lossScreen();
+            updateScore();
         }
         if((playerOneChoice === "fist" && playerTwoChoice === "fist") || (playerOneChoice==="slap" && playerTwoChoice==="slap") || (playerOneChoice==="snip" && playerTwoChoice ==="snip")){
             handSelect = "";
@@ -145,6 +148,7 @@ storesRef.on('value', function(snapshot){
             selectionMade();
             winUpdate();
             winnScreen();
+            updateScore();
         }
         if((playerTwoChoice==="fist" && playerOneChoice==="snip") || (playerTwoChoice === "slap" && playerOneChoice==="fist")|| (playerTwoChoice==="snip"&& playerOneChoice==="slap")){
             console.log('youlose!!')
@@ -153,6 +157,7 @@ storesRef.on('value', function(snapshot){
             selectionMade();
             lossUpdate();
             lossScreen();
+            updateScore();
         }
         if((playerOneChoice === "fist" && playerTwoChoice === "fist") || (playerOneChoice==="slap" && playerTwoChoice==="slap") || (playerOneChoice==="snip" && playerTwoChoice ==="snip")){
             handSelect = "";
@@ -191,6 +196,13 @@ storesRef.on('value', function(snapshot){
   });
 
 
+function updateScore(){
+    $("#winCount").text('wins: ' + wins);
+    $("#lossCount").text('Losses: ' + losses);
+}
+
+
+
   
 function winnScreen(){
     $("#winScreen").css('display','flex');
@@ -200,6 +212,7 @@ function winnScreen(){
         resetHands();
     },1500);
 }
+
 function lossScreen(){
     $("#lossScreen").css('display','flex');
 
