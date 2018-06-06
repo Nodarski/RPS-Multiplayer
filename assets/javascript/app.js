@@ -95,6 +95,7 @@ storesRef.on('value', function(snapshot){
             console.log('you WIN!!')
             wins ++;
             handSelect = "";
+            dispP2Choice()
             selectionMade();
             winUpdate();
             winnScreen();
@@ -104,6 +105,7 @@ storesRef.on('value', function(snapshot){
             console.log('youlose!!')
             losses++;
             handSelect = "";
+            dispP2Choice()
             selectionMade();
             lossUpdate();
             lossScreen();
@@ -111,6 +113,7 @@ storesRef.on('value', function(snapshot){
         }
         if((playerOneChoice === "fist" && playerTwoChoice === "fist") || (playerOneChoice==="slap" && playerTwoChoice==="slap") || (playerOneChoice==="snip" && playerTwoChoice ==="snip")){
             handSelect = "";
+            dispP2Choice()
             selectionMade();
             console.log("tie game!!");
             tieScreen();
@@ -145,6 +148,7 @@ storesRef.on('value', function(snapshot){
             console.log('you WIN!!')
             wins++;
             handSelect = "";
+            dispP2Choice()
             selectionMade();
             winUpdate();
             winnScreen();
@@ -154,6 +158,7 @@ storesRef.on('value', function(snapshot){
             console.log('youlose!!')
             losses++;
             handSelect = "";
+            dispP2Choice()
             selectionMade();
             lossUpdate();
             lossScreen();
@@ -161,6 +166,7 @@ storesRef.on('value', function(snapshot){
         }
         if((playerOneChoice === "fist" && playerTwoChoice === "fist") || (playerOneChoice==="slap" && playerTwoChoice==="slap") || (playerOneChoice==="snip" && playerTwoChoice ==="snip")){
             handSelect = "";
+            dispP2Choice()
             selectionMade();
             console.log("tie game!!");
             tieScreen();
@@ -201,6 +207,15 @@ function updateScore(){
     $("#lossCount").text('Losses: ' + losses);
 }
 
+function dispP2Choice(){
+    console.log("#s"+playerTwoChoice);
+    temp = "#s"+playerTwoChoice;
+     $(temp).css('display','');
+     setTimeout(function(){
+        $(temp).css('display','none');
+     },2000);
+}
+
 
 
   
@@ -210,7 +225,7 @@ function winnScreen(){
     setTimeout(function(){
         $("#winScreen").css('display','none');
         resetHands();
-    },1500);
+    },2000);
 }
 
 function lossScreen(){
@@ -219,7 +234,7 @@ function lossScreen(){
     setTimeout(function(){
         $("#lossScreen").css('display','none');
         resetHands();
-    },1500);
+    },2000);
 }
 
 function tieScreen(){
@@ -228,7 +243,7 @@ function tieScreen(){
     setTimeout(function(){
         $("#tieScreen").css('display','none');
         resetHands();
-    },1500);
+    },2000);
 }
 
 

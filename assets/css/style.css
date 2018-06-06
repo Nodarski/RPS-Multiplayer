@@ -1,6 +1,4 @@
-div {
-    border: 5px solid black;
-}
+
 textarea {
     resize: none;
     
@@ -38,7 +36,7 @@ textarea {
     height: 65vh;
     display: none;
     position: absolute;
-    background-color: antiquewhite;
+    background-color: lightseagreen;
     opacity: 0.8;
     align-items: center;
     justify-content: center;
@@ -50,7 +48,7 @@ textarea {
     height: 65vh;
     display: none;
     position: absolute;
-    background-color: antiquewhite;
+    background-color: red;
     opacity: 0.8;
     align-items: center;
     justify-content: center;
@@ -62,7 +60,7 @@ textarea {
     height: 65vh;
     display: none;
     position: absolute;
-    background-color: antiquewhite;
+    background-color: gold;
     opacity: 0.8;
     align-items: center;
     justify-content: center;
@@ -148,6 +146,15 @@ textarea {
     transform: scaleX(-1);
     height: 200px;
 
+}
+#ssnip, #sfist, #sslap {
+    flex: 1;
+
+    position: absolute;
+    left:75%;
+    transform: scaleX(-1);
+    height: 200px;
+    z-index:1;
 }
 
 #waitingForP {
