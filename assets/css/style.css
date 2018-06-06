@@ -157,14 +157,48 @@ textarea {
     z-index:1;
 }
 
-#waitingForP {
+#p2Chosen, #chooseWep, #waitingForP {
     flex: 1;
     position: absolute;
     left: 75%;
     height:200px;
     z-index: 1;
 }
-
+ 
+#p2Chosen {
+    animation: pick1 3s infinite;
+}
+#chooseWep {
+    animation: pick2 3s infinite;
+}
+@keyframes pick1 {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    51% {
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+    }
+}
+@keyframes pick2{
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    51% {
+        opacity:1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 #pSnip {
     animation: flash1 0.31s infinite;
 }

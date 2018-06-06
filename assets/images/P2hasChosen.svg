@@ -1,0 +1,10 @@
+<svg width="90" height="90" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <title>fist</title>
+ <g>
+  <title>Layer 1</title>
+  <circle id="svg_3" r="43.80065" cy="45" cx="45" stroke-width="2" fill="#ff3030"/>
+  <text fill="#000000" stroke-width="0" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x="51.38682" y="35.73409" id="svg_4" font-size="24" font-family="Sans-serif" text-anchor="middle" xml:space="preserve" transform="matrix(0.8742012977600098,0,0,0.8742012977600098,0.08255539834499359,8.060944966971874) " font-weight="bold">Player 2</text>
+  <text transform="matrix(0.5747172832489014,0,0,0.5747172832489014,11.176961399614811,27.437380272895098) " xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" id="svg_1" y="45.89578" x="58.84776" stroke-width="0" fill="#000000">has</text>
+  <text transform="matrix(0.6786311864852905,0,0,0.6786311864852905,-46.15157445333898,7.85847176797688) " font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" id="svg_2" y="86.1996" x="134.30943" stroke-width="0" fill="#000000">chosen</text>
+ </g>
+</svg>

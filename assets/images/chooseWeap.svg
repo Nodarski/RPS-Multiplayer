@@ -1,0 +1,10 @@
+<svg width="90" height="90" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <title>fist</title>
+ <g>
+  <title>Layer 1</title>
+  <circle id="svg_3" r="43.80065" cy="45" cx="45" stroke-width="2" fill="#ff3030"/>
+  <text transform="matrix(0.7099420560974091,0,0,0.7099420560974091,-40.05438961949477,5.0020295985489085) " font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" id="svg_6" y="40.78104" x="119.81296" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#000000">CHOOSE</text>
+  <text transform="matrix(0.5510419219080375,0,0,0.5510419219080375,-38.26770433380592,9.135656899077471) " xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" id="svg_7" y="73.44737" x="151.39394" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#000000">YOUR</text>
+  <text transform="matrix(0.8106548224791522,0,0,0.8106548224791522,-2.8115758268606346,14.150610086732222) " font-weight="bold" xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" id="svg_8" y="71.3782" x="59.43505" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#000000">WEAPON</text>
+ </g>
+</svg>
