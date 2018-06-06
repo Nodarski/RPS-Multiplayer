@@ -84,7 +84,14 @@ storesRef.on('value', function(snapshot){
       if (player === 1){
         playerTwoChoice = snapshot.child('2').child("RPorS").val()
         p2Status = snapshot.child('2').val();
-
+            if(playerTwoChoice==="fist" || playerTwoChoice==="snip" || playerTwoChoice==="slap"){
+                $("#p2Chosen").css('display','');
+                $('#chooseWep').css('display','');
+            }
+            if(playerTwoChoice===''){
+                $("#p2Chosen").css('display','none');
+                $('#chooseWep').css('display','none');
+            }
         //playerTwoChoice = snapshot.val();
 
         playerOneChoice = snapshot.child('1').child('RPorS').val()
@@ -136,7 +143,14 @@ storesRef.on('value', function(snapshot){
         p1Status = snapshot.child('1').val();
 
         playerTwoChoice = snapshot.child('1').child("RPorS").val()
-
+            if(playerTwoChoice==="fist" || playerTwoChoice==="snip" || playerTwoChoice==="slap"){
+                $("#p2Chosen").css('display','');
+                $('#chooseWep').css('display','');
+            }
+            if(playerTwoChoice===''){
+                $("#p2Chosen").css('display','none');
+                $('#chooseWep').css('display','none');
+            }
            
 
         playerOneChoice = snapshot.child('2').child("RPorS").val()
