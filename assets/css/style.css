@@ -32,7 +32,43 @@ textarea {
     flex-direction: column;
     
 }
-.waiting {
+#winScreen {
+    z-index: 3;
+    width: 100%;
+    height: 65vh;
+    display: none;
+    position: absolute;
+    background-color: antiquewhite;
+    opacity: 0.8;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#lossScreen {
+    z-index: 3;
+    width: 100%;
+    height: 65vh;
+    display: none;
+    position: absolute;
+    background-color: antiquewhite;
+    opacity: 0.8;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#tieScreen {
+    z-index: 3;
+    width: 100%;
+    height: 65vh;
+    display: none;
+    position: absolute;
+    background-color: antiquewhite;
+    opacity: 0.8;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.waiting,.winn,.lose,.tie {
     font-size: 80px;
     
 }

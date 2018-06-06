@@ -63,27 +63,54 @@ var messList = $("#messList");
 
   
 storesRef.on('value', function(snapshot){
+
+    // check if player 2 is here
+    // check if player 2 is here
       playerNum = snapshot.child('2').val();
       if (playerNum){
         $('#waitingForP').css('display', 'none');
         
         }
 
-
+// If player 1
+// If player 1
       if (player === 1){
         playerTwoChoice = snapshot.child('2').child("RPorS").val()
         p2Status = snapshot.child('2').val();
 
         //playerTwoChoice = snapshot.val();
 
-        
-
-        
-
         playerOneChoice = snapshot.child('1').child('RPorS').val()
         console.log("P1 playerOneChoice =  " +playerOneChoice);
         console.log("P1 playerTwoChoice=  "+playerTwoChoice);
         
+        if((playerTwoChoice==="fist" && playerOneChoice==="slap") ||(playerTwoChoice==="slap"&&playerOneChoice==="snip") || (playerTwoChoice==="snip"&&playerOneChoice==="fist")){
+            console.log('you WIN!!')
+            wins ++;
+            handSelect = "";
+            selectionMade();
+            winnScreen()
+        }
+        if((playerTwoChoice==="fist" && playerOneChoice==="snip") || (playerTwoChoice === "slap" && playerOneChoice==="fist")|| (playerTwoChoice==="snip"&& playerOneChoice==="slap")){
+            console.log('youlose!!')
+            losses++;
+            handSelect = "";
+            selectionMade();
+            lossScreen()
+        }
+        if((playerOneChoice === "fist" && playerTwoChoice === "fist") || (playerOneChoice==="slap" && playerTwoChoice==="slap") || (playerOneChoice==="snip" && playerTwoChoice ==="snip")){
+            handSelect = "";
+            selectionMade();
+            console.log("tie game!!");
+            tieScreen();
+        }
+
+
+
+
+
+
+
         if(!p2Status){
             $('#waitingForP').css('display', '');
         }
@@ -102,6 +129,27 @@ storesRef.on('value', function(snapshot){
 
         console.log("P2 playerOneChoice =  " +playerOneChoice);
         console.log("P2 playerTwoChoice=  "+playerTwoChoice);
+
+        if((playerTwoChoice==="fist" && playerOneChoice==="slap") ||(playerTwoChoice==="slap"&&playerOneChoice==="snip") || (playerTwoChoice==="snip"&&playerOneChoice==="fist")){
+            console.log('you WIN!!')
+            wins++;
+            handSelect = "";
+            selectionMade();
+            winnScreen();
+        }
+        if((playerTwoChoice==="fist" && playerOneChoice==="snip") || (playerTwoChoice === "slap" && playerOneChoice==="fist")|| (playerTwoChoice==="snip"&& playerOneChoice==="slap")){
+            console.log('youlose!!')
+            losses++;
+            handSelect = "";
+            selectionMade();
+            lossScreen();
+        }
+        if((playerOneChoice === "fist" && playerTwoChoice === "fist") || (playerOneChoice==="slap" && playerTwoChoice==="slap") || (playerOneChoice==="snip" && playerTwoChoice ==="snip")){
+            handSelect = "";
+            selectionMade();
+            console.log("tie game!!");
+            tieScreen();
+        }
         
         if(!p1Status){
             $('#waitingForP').css('display', '');
@@ -134,6 +182,31 @@ storesRef.on('value', function(snapshot){
 
 
   
+function winnScreen(){
+    $("#winScreen").css('display','flex');
+
+    setTimeout(function(){
+        $("#winScreen").css('display','none');
+        resetHands();
+    },1500);
+}
+function lossScreen(){
+    $("#lossScreen").css('display','flex');
+
+    setTimeout(function(){
+        $("#lossScreen").css('display','none');
+        resetHands();
+    },1500);
+}
+
+function tieScreen(){
+    $("#tieScreen").css('display','flex');
+
+    setTimeout(function(){
+        $("#tieScreen").css('display','none');
+        resetHands();
+    },1500);
+}
 
 
     
@@ -301,16 +374,20 @@ $("#gameArea").on("click",".selected", function(){
     selectionMade()
     console.log('I CHOSE =  ' + handSelect);
 
-    $("#fist").animate({
-        left: "50%",
-        opacity:1  
-    }).css("z-index", "").attr( "class","choseFist")
-    $("#slap").animate({
-        left: "30%",
-        opacity:1
-    }).css("z-index", "").attr( "class","choseSlap")
-    $("#snip").animate({
-        left: "10%",
-        opacity:1
-    }).css("z-index", "").attr( "class","choseSnip")
+    resetHands();
 });
+
+function resetHands(){
+$("#fist").animate({
+    left: "50%",
+    opacity:1  
+}).css("z-index", "").attr( "class","choseFist")
+$("#slap").animate({
+    left: "30%",
+    opacity:1
+}).css("z-index", "").attr( "class","choseSlap")
+$("#snip").animate({
+    left: "10%",
+    opacity:1
+}).css("z-index", "").attr( "class","choseSnip")
+};
