@@ -41,6 +41,7 @@ var messList = $("#messList");
   var wins = 0;
   var losses = 0;
   var player=0;
+  var playerWaiting=0;
 // Global Vars
 
 // Removes player data when diconnect
@@ -72,6 +73,11 @@ storesRef.on('value', function(snapshot){
         
         }
 
+    $("#p1is").text('Player 1: ' + snapshot.child('1').child('name').val() + " with " + snapshot.child('1').child('Wins').val() + "wins!");
+    $("#p2is").text('Player 2: ' + snapshot.child('2').child('name').val() + " with " + snapshot.child('2').child('Wins').val() + "wins!");
+
+    $("#plWaiting").text()
+
 // If player 1
 // If player 1
       if (player === 1){
@@ -89,6 +95,7 @@ storesRef.on('value', function(snapshot){
             wins ++;
             handSelect = "";
             selectionMade();
+            winUpdate();
             winnScreen()
         }
         if((playerTwoChoice==="fist" && playerOneChoice==="snip") || (playerTwoChoice === "slap" && playerOneChoice==="fist")|| (playerTwoChoice==="snip"&& playerOneChoice==="slap")){
@@ -96,7 +103,8 @@ storesRef.on('value', function(snapshot){
             losses++;
             handSelect = "";
             selectionMade();
-            lossScreen()
+            lossUpdate();
+            lossScreen();
         }
         if((playerOneChoice === "fist" && playerTwoChoice === "fist") || (playerOneChoice==="slap" && playerTwoChoice==="slap") || (playerOneChoice==="snip" && playerTwoChoice ==="snip")){
             handSelect = "";
@@ -135,6 +143,7 @@ storesRef.on('value', function(snapshot){
             wins++;
             handSelect = "";
             selectionMade();
+            winUpdate();
             winnScreen();
         }
         if((playerTwoChoice==="fist" && playerOneChoice==="snip") || (playerTwoChoice === "slap" && playerOneChoice==="fist")|| (playerTwoChoice==="snip"&& playerOneChoice==="slap")){
@@ -142,6 +151,7 @@ storesRef.on('value', function(snapshot){
             losses++;
             handSelect = "";
             selectionMade();
+            lossUpdate();
             lossScreen();
         }
         if((playerOneChoice === "fist" && playerTwoChoice === "fist") || (playerOneChoice==="slap" && playerTwoChoice==="slap") || (playerOneChoice==="snip" && playerTwoChoice ==="snip")){
@@ -288,7 +298,17 @@ $("#submitMessage").on('click', function (event){
 ///////////////////////////////////////////////////////////
 
 
+function winUpdate(){
+    storesRef.child(player).update({
+        "Wins": wins
+})
+};
 
+function lossUpdate(){
+    storesRef.child(player).update({
+        "losses":losses
+})
+};
 
 function selectionMade(){
     storesRef.child(player).update({
